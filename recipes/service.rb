@@ -1,4 +1,5 @@
 
+includ_recipe 'kafka::common'
 install_dir = node[:kafka][:install_dir] 
 
 template "#{install_dir}/bin/service-control" do
@@ -17,7 +18,8 @@ template "#{install_dir}/bin/service-control" do
 end
 
 runit_service "kafka" do
-  action [:enable, :start] 
+	default_logger true
+	action [:enable, :start] 
 end
 
 
