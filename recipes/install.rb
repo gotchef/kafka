@@ -45,7 +45,7 @@ end
 include_recipe 'kafka::common'
 full_version = node[:kafka][:full_version]
 install_root_dir =node[:kafka][:install_root_dir]
-install_dir ==node[:kafka][:install_dir]
+install_dir =node[:kafka][:install_dir]
 
 
 directory "#{install_root_dir}" do
