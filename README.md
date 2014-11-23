@@ -1,4 +1,4 @@
-kafka
-=====
+Description
+===========
 
-Kafka Chef OpsWorks Amazon Linux
+Installs kafka 0.8.1.1
