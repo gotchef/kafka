@@ -1,3 +1,4 @@
+name			"kafka"
 maintainer        "Krave-n Inc."
 maintainer_email  "dev-ops@krave-n.com"
 license           "Copyright 2014 Krave-n Inc."
