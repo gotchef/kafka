@@ -43,8 +43,10 @@ end
 
 # == Directories
 
-include_recipe 'kafka::common'
-install_dir = node[:kafka][:install_dir] 
+install_root_dir = node[:kafka][:install_root_dir]
+version_dir = "kafka_#{node[:kafka][:version_scala]}-#{node[:kafka][:version]}"
+install_dir = "#{install_root_dir}/#{version_dir}"
+
 
 directory "#{install_root_dir}" do
   owner "root"
