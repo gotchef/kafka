@@ -1,6 +1,6 @@
-
-include_recipe 'kafka::common'
-install_dir = node[:kafka][:install_dir] 
+full_version = "#{node[:kafka][:version_scala]}-#{node[:kafka][:version]}"
+install_root_dir= "#{node[:kafka][:install_root_dir]}"
+install_dir = "#{install_root_dir}/kafka_#{full_version}"
 
 template "#{install_dir}/bin/service-control" do
   source  "service-control.erb"

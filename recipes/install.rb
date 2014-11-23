@@ -42,10 +42,9 @@ user user do
 end
 
 # == Directories
-include_recipe 'kafka::common'
-full_version = node[:kafka][:full_version]
-install_root_dir =node[:kafka][:install_root_dir]
-install_dir =node[:kafka][:install_dir]
+full_version = "#{node[:kafka][:version_scala]}-#{node[:kafka][:version]}"
+install_root_dir= "#{node[:kafka][:install_root_dir]}"
+install_dir = "#{install_root_dir}/kafka_#{full_version}"
 
 
 directory "#{install_root_dir}" do
