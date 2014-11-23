@@ -1,5 +1,5 @@
 
-includ_recipe 'kafka::common'
+include_recipe 'kafka::common'
 install_dir = node[:kafka][:install_dir] 
 
 template "#{install_dir}/bin/service-control" do
