@@ -43,9 +43,9 @@ end
 
 # == Directories
 
-install_root_dir = node[:kafka][:install_root_dir]
-version_dir = "kafka_#{node[:kafka][:version_scala]}-#{node[:kafka][:version]}"
-install_dir = "#{install_root_dir}/#{version_dir}"
+full_version = "#{node[:kafka][:version_scala]}-#{node[:kafka][:version]}"
+install_root_dir = "#{node[:kafka][:install_root_dir]}"
+install_dir = "#{install_root_dir}/kafka_#{full_version}"
 
 
 directory "#{install_root_dir}" do
