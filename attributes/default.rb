@@ -4,10 +4,10 @@
 #
 
 # Install
-default[:kafka][:version] = "0.8.1.1"
+default[:kafka][:version] = "0.8.2-beta"
 default[:kafka][:version_scala] = "2.9.2"
 default[:kafka][:mirror] = "http://www.us.apache.org/dist/kafka"
-default[:kafka][:checksum] = "cb141c1d50b1bd0d741d68e5e21c090341d961cd801e11e42fb693fa53e9aaed"
+default[:kafka][:checksum] = "0e9e08bd8cec6d0720b13077f16eef1f3ddaa3cddce28f6b738b16780821db8b"
 
 default[:kafka][:install_root_dir] = "/opt/kafka"
 default[:kafka][:data_dir] = "/vol/kafka/data"
