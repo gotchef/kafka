@@ -6,10 +6,18 @@
 zk.connect=<%= @zookeeper_pairs.join(",") %>
 
 # timeout in ms for connecting to zookeeper
-zk.connectiontimeout.ms=1000000
+zk.connection.timeout.ms=1000000
+zookeeper.session.timeout.ms = 60000
+zookeeper.sync.time.ms = 20000
 
 #consumer group id
-groupid=test-consumer-group
+groupid=kafka-consumer
 
 #consumer timeout
-#consumer.timeout.ms=5000
+consumer.timeout.ms=-1
+
+refresh.leader.backoff.ms = 9000
+
+rebalance.backoff.ms = 20000
+
+
