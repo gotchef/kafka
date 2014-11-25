@@ -1,8 +1,13 @@
 #
 # kafka::config_files
 #
-
+include_recipe "runit"
 include_recipe "kafka::opsworks_hosts"
+
+runit_service "kafka" do
+	action :nothing
+end
+
 
 install_root_dir = node[:kafka][:install_root_dir]
 version_dir = "kafka_#{node[:kafka][:version_scala]}-#{node[:kafka][:version]}"
