@@ -28,7 +28,7 @@ hostname = node['hostname']
 hostNumber = hostname.split('-')[1].strip.to_i
 node.default[:kafka][:broker_id] = hostNumber
 
-%w[server.properties log4j.properties].each do |template_file|
+%w[server.properties consumer.properties producer.properties log4j.properties].each do |template_file|
 template "#{install_dir}/config/#{template_file}" do
 	source "#{template_file}.erb"
 	owner user
@@ -37,7 +37,6 @@ template "#{install_dir}/config/#{template_file}" do
     variables({
       :kafka => node[:kafka],
       :zookeeper_pairs => zookeeper_pairs,
-      :client_port => node[:zookeeper][:client_port]
     })
 	notifies :restart, "runit_service[kafka]"
   end
