@@ -28,8 +28,7 @@ default[:kafka][:log_flush_interval] = 5
 default[:kafka][:log_flush_time_interval] = 500
 default[:kafka][:log_flush_scheduler_time_interval] = 1000
 # retain forever
-# temp 1 hour while still in development
-default[:kafka][:log_retention_hours] = 1 
+default[:kafka][:log_retention_hours] = -1 
 
 #default[:kafka][:controlled_shutdown_enabled] = true
 default[:kafka][:autocreate_topics] = false
