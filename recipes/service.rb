@@ -18,6 +18,7 @@ end
 
 runit_service "kafka" do
 	default_logger true
+	sv_timeout 180
 	action [:enable, :start] 
 end
 
