@@ -19,7 +19,7 @@ end
 runit_service "kafka" do
 	default_logger true
 	sv_timeout 180
-	env env_vars
+	env_vars = node[:kafka][:env_vars]
 	action [:enable, :start] 
 end
 
