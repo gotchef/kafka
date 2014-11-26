@@ -20,7 +20,7 @@ directory "#{node[:kafka][:conf_link_dir]}" do
   group "root"
   mode '00755'
   recursive true
-  action :create
+  action :delete
 end
 
 hostname = node['hostname']
@@ -42,17 +42,7 @@ template "#{install_dir}/config/#{template_file}" do
   end
 end
 
-config = "server.properties"
-configPath =  "#{install_dir}/config/#{config}" 
-
 #create sym link
-link  "#{node[:kafka][:conf_link_dir]}/#{config}" do
-	to configPath	
-end
-
-logConfig = "log4j.properties"
-logPath = "#{install_dir}/config/#{logConfig}"
-
-link  "#{node[:kafka][:conf_link_dir]}/#{logConfig}" do
-	to logPath	
+link  "#{node[:kafka][:conf_link_dir]}" do
+	to  "#{install_dir}/config/"	
 end
