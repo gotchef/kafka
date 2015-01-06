@@ -48,7 +48,7 @@ default[:kafka][:zookeeper_nodes] = Array['localhost:2181']
 default[:kafka][:log4j_logging_level] = "INFO"
 default[:kafka][:jmx_port] = 9010
 default[:kafka][:env_vars] = {
-	"KAFKA_OPTS" => "-Xms512M -Xmx512M"
+	"KAFKA_OPTS" => "-Xms512M -Xmx512M -server -Djava.net.preferIPv4Stack=true -Dlog4j.configuration=file:#{node[:kafka][:conf_link_dir]}/log4j.properties"
 }
 
 default[:java][:install_flavor] = "oracle"
