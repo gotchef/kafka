@@ -35,8 +35,8 @@ default[:kafka][:autocreate_topics] = false
 
 # == Zookeeper
 default[:kafka][:zk_connectiontimeout] = 120000
-default[:kafka][:zk_sync_fallbehind_by] = 10000
-default[:kafka][:zk_session_timeout] = 10000
+default[:kafka][:zk_sync_fallbehind_by] = 60000
+default[:kafka][:zk_session_timeout] = 60000
 
 
 default[:kafka][:user] = "kafka"

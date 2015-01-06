@@ -28,10 +28,10 @@
 zk.connect=<%= @zookeeper_pairs.join(",") %>/kafka
 
 # zookeeper session timeout; default is 6000
-zk.sessiontimeout.ms= 20000
+zk.sessiontimeout.ms= 60000
 
 # the max time that the client waits to establish a connection to zookeeper; default is 6000
-zk.connectiontimeout.ms = 20000
+zk.connectiontimeout.ms = 60000
 
 # name of the partitioner class for partitioning events; default partition spreads data randomly
 #partitioner.class=
@@ -53,13 +53,13 @@ serializer.class=kafka.serializer.StringEncoder
 
 ############################## Advanced #################################
 
-rebalance.backoff.ms = 25000
+rebalance.backoff.ms = 60000
 
 #leader has it, then we're good
 request.required.acks = 1
 
-request.timeout.ms = 20000
-retry.backoff.ms = 10000
+request.timeout.ms = 60000
+retry.backoff.ms = 60000
 
 ############################# Async Producer #############################
 # maximum time, in milliseconds, for buffering data on the producer queue 

@@ -15,14 +15,6 @@ install_dir = "#{install_root_dir}/#{version_dir}"
 
 zookeeper_pairs = node[:kafka][:zookeeper_nodes]
 
-directory "#{node[:kafka][:conf_link_dir]}" do
-  owner "root"
-  group "root"
-  mode '00755'
-  recursive true
-  action :delete
-end
-
 hostname = node['hostname']
 # kafka-01, get the 01 part
 hostNumber = hostname.split('-')[1].strip.to_i
