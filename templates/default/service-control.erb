@@ -34,7 +34,11 @@ fi
 JMX_OPTS="$JMX_OPTS -Dcom.sun.management.jmxremote.port=$JMX_PORT "
 
 if [ -z "$KAFKA_OPTS" ]; then
-KAFKA_OPTS="-Xmx512M -server -Djava.net.preferIPv4Stack=true -Dlog4j.configuration=file:<%=node[:kafka][:conf_link_dir]%>/log4j.properties"
+KAFKA_OPTS="-Xms512M -Xmx512M" 
+fi
+
+if [ -z "$KAFKA_STD" ]; then
+KAFKA_OPTS="-server -Djava.net.preferIPv4Stack=true -Dlog4j.configuration=file:<%=node[:kafka][:conf_link_dir]%>/log4j.properties"
 fi
 
 if [ -z "$JAVA_HOME" ]; then
@@ -44,7 +48,7 @@ else
 fi
 
 # Create the JSVC command line.
-CMD="$JAVA $KAFKA_OPTS $JMX_OPTS -cp $CP"
+CMD="$JAVA $KAFKA_OPTS $KAFKA_STD $JMX_OPTS -cp $CP"
 
 # Find current PID if any.
 FOUND_PID=`ps -ef |grep $MAIN |grep -v grep |awk '{print $2}'`
